@@ -1,8 +1,7 @@
-import Link from "next/link";
-import Image from "next/image";
-import { useSession } from "next-auth/react";
 import { signOut } from "next-auth/react";
-import { useAuthStore } from "@/lib/store";
+import { getUser } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
 
 // Interface For Login Model Close Props
 type ModalProps = {
@@ -10,13 +9,7 @@ type ModalProps = {
 };
 
 export const Menu = ({ openModal }: ModalProps) => {
-  // Get Authenticated User's Session
-  const { data: session, status } = useSession();
-
-  // Check if User is Logged In
-  const isLogin = status === "authenticated";
-
-  const { user } = useAuthStore();
+  const user = getUser();
 
   return (
     <>
@@ -32,21 +25,13 @@ export const Menu = ({ openModal }: ModalProps) => {
                   href={"/settings"}
                   className="font-bold p-2 block md:hidden"
                 >
-                  {isLogin
-                    ? session.user.first_name
-                    : user
-                    ? user.first_name
-                    : "Guest"}
+                  {user ? user.first_name : "Guest"}
                 </Link>
                 <Link
                   href={"/settings"}
                   className="font-bold p-2 hidden md:block"
                 >
-                  {isLogin
-                    ? session.user.first_name
-                    : user
-                    ? user.first_name
-                    : "Guest"}
+                  {user ? user.first_name : "Guest"}
                 </Link>
               </div>
               <span className="block md:hidden">|</span>
@@ -93,7 +78,7 @@ export const Menu = ({ openModal }: ModalProps) => {
           </Link>
         </li>
         <li className="hover:bg-gray-600 rounded-lg hover:text-white">
-          {user || isLogin ? (
+          {user ? (
             <Link
               href={""}
               className="flex h-10 items-center"
