@@ -72,7 +72,7 @@ const Navbar = () => {
             Categories
           </Link>
           <Link href={""} className="btn btn-ghost text-lg">
-            Products
+            Luxeries
           </Link>
         </div>
         <div className="flex-none gap-0 sm:gap-4">

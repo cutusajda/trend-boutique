@@ -22,20 +22,20 @@
   "name": "Trend Boutique",
   "short_name": "Trend Boutique",
   "start_url": "/",
-  "scope": ".",
-  "id": "1",
+  "scope": "/",
+  "id": "/",
   "description": "Fashion That Make Sense, Ecommerce Platform To Shop Clothes, Accessories, Outwears And More",
   "screenshots": [
     {
       "src": "assets/screenshot/screenshot1.png",
       "type": "image/png",
-      "sizes": "540x720",
+      "sizes": "1080x1440",
       "form_factor": "narrow"
     },
     {
       "src": "assets/screenshot/screenshot2.png",
       "type": "image/jpg",
-      "sizes": "720x540",
+      "sizes": "1440x1080",
       "form_factor": "wide"
     }
   ]
